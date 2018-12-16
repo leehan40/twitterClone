@@ -1,0 +1,66 @@
+body {
+   background-image: url("paper.gif");
+   background-color: #cccccc;
+}
+#main{
+  background-color: grey;
+  width: 500px;
+  height: 800px;
+  margin: 0 auto;
+}
+#header {
+  border-bottom: 3px solid #111111;
+  width: 480px;
+  margin: 0 auto;
+}
+#tweetStream {
+  width: 480px;
+  height: 740px;
+  margin: 3px;
+}
+#addTweet {
+  width: 460px;
+  height: 120px;
+  margin: 3px;
+}
+#tweets {
+  padding: 100px
+  border: 3px solid #111111;
+  width: 450px;
+  height: 600px;
+  margin: 5px;
+}
+#tweetsUser {
+text-indent: 5px;
+  width: 500px;
+  margin: 0 auto;
+}
+#tweetsMessage {
+  border: 3px solid #111111;
+  width: 400px;
+
+}
+#tweetsLikes {
+  width: 100px;
+  margin-bottom: 20px;
+  margin-left: 300px;
+}
+#hide{
+  display: none;
+}
+.likeTweet{
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  padding: 2px 10px;
+  text-decoration: none;
+  color: initial;
+}
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    padding: 2px 10px;
+    text-decoration: none;
+    color: initial;
+}
