@@ -12,7 +12,7 @@
   session_start();
   require_once "pdo.php";
 
-    $sql = "SELECT * FROM messageslikes WHERE MessageID = :messageID AND UserID = :userID";
+    $sql = "SELECT * FROM MessagesLikes WHERE MessageID = :messageID AND UserID = :userID";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(array(
       ':messageID' => $_POST['MessageID'],
@@ -23,7 +23,7 @@
 
     // like tweet
     if($temp < 1){
-        $sql = "INSERT INTO messageslikes(MessageID, UserID) VALUES (:messageID, :userID)";
+        $sql = "INSERT INTO MessagesLikes(MessageID, UserID) VALUES (:messageID, :userID)";
         $stmt = $pdo->prepare($sql);
         $stmt->execute(array(
           ':messageID' => $_POST['MessageID'],
@@ -33,7 +33,7 @@
 
       // unlike tweet
       if($temp == 1){
-        $sql = "DELETE FROM messageslikes WHERE MessageID = :messageID AND UserID = :userID";
+        $sql = "DELETE FROM MessagesLikes WHERE MessageID = :messageID AND UserID = :userID";
         $stmt = $pdo->prepare($sql);
         $stmt->execute(array(
           ':messageID' => $_POST['MessageID'],

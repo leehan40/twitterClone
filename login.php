@@ -13,12 +13,12 @@
   if ( isset($_POST["logIn"]) )
   {
 
-    unset($_SESSION["account"]); // Logout current users
+    unset($_SESSION["account"]); // Logout current Users
 
     $_SESSION["account"] = $_POST["account"];
     $_SESSION["pw"] = $_POST["pw"];
 
-    $sql = "SELECT UserID, `Email Address`, Password FROM users WHERE `Email Address` = :name";
+    $sql = "SELECT UserID, `Email Address`, Password FROM Users WHERE `Email Address` = :name";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(array(
       ':name' => $_SESSION['account']));

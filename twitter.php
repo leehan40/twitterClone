@@ -4,7 +4,7 @@
      twitter.php
      Main page of this twitter Clone
      Displays all sumbitted tweets
-     Allows logged in users to post tweets and like tweets
+     Allows logged in Users to post tweets and like tweets
 -->
 
 <?php
@@ -37,7 +37,7 @@
 
         //Check AddTweet
         if (isset($_POST['NewTweetButton']) && $_POST['newTweet']!=null ){
-          $sql = "INSERT INTO messages(userID, message) VALUES (:userID, :message)";
+          $sql = "INSERT INTO Messages(userID, message) VALUES (:userID, :message)";
           $stmt = $pdo->prepare($sql);
           $stmt->execute(array(
             ':userID' => $_SESSION['userId'],
@@ -69,15 +69,15 @@
           <H2>Tweets</H2>
 
             <?php
-            $stmt = $pdo->query("SELECT `users`.`Email Address` AS Email,
-                                      `messages`.`Message` AS Message,
-                                      `messages`.`MessageID`,
+            $stmt = $pdo->query("SELECT `Users`.`Email Address` AS Email,
+                                      `Messages`.`Message` AS Message,
+                                      `Messages`.`MessageID`,
                                       (SELECT Count(*)
-                                        FROM `messageslikes`
+                                        FROM `MessagesLikes`
                                         WHERE `Messages`.`MessageID` = `MessageID`
                                         ) AS Likes
-                              FROM `messages`
-                              LEFT JOIN `users` ON `users`.`UserID` = `messages`.`UserID`
+                              FROM `Messages`
+                              LEFT JOIN `Users` ON `Users`.`UserID` = `Messages`.`UserID`
                               ORDER BY `Messages`.`MessageID` DESC;");
             while ( $row = $stmt->fetch(PDO::FETCH_ASSOC) ) {
               echo('<form method="post" action="likeButton.php">');

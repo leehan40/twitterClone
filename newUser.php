@@ -15,7 +15,7 @@
       $_SESSION["newPw"] = $_POST["newPw"];
 
       //Check if Email address is already in database
-      $sql = "SELECT UserID, `Email Address`, Password FROM users WHERE `Email Address` = :name";
+      $sql = "SELECT UserID, `Email Address`, Password FROM Users WHERE `Email Address` = :name";
       $stmt = $pdo->prepare($sql);
       $stmt->execute(array(
         ':name' => $_SESSION['newEmail']));
@@ -30,7 +30,7 @@
         return;
       }
       else {
-        $sql = "INSERT INTO users (`Email Address`, Password) VALUES (:Email, :Pw)";
+        $sql = "INSERT INTO Users (`Email Address`, Password) VALUES (:Email, :Pw)";
         $stmt = $pdo->prepare($sql);
         $stmt->execute(array(
           ':Email' => $_SESSION['newEmail'],
