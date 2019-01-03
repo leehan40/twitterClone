@@ -11,13 +11,13 @@
   session_start();
   require_once "pdo.php";
 ?>
-<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
     <title>Twitter Clone</title>
     <link  type="text/css" rel="stylesheet" href="./style.css">
-    
+
     <?php
     //Causes Add tweet and like button divs to not appear if user is not logged in
     if(!isset($_SESSION["account"]))
@@ -27,7 +27,7 @@
     <?php
     }
     ?>
-      
+
   </head>
   <body>
     <div id="main">
@@ -64,7 +64,7 @@
 
         <div id = "addTweet">
         <form method="post">
-          
+
           <div><H2>Add a tweet</h2>
             <div>
               <input type="text" name="newTweet" size="50">
@@ -91,10 +91,10 @@
                               ORDER BY `Messages`.`MessageID` DESC;");
                 while ( $row = $stmt->fetch(PDO::FETCH_ASSOC) ) {
                 echo('<form method="post" action="likeButton.php">');
-                
+
               ?><div id=tweetsUser><?php
                 echo($row['Email'] . " tweeted:");
-                
+
               ?><div id="tweetsMessage"><?php
                 echo($row['Message']);
               ?></div><?php
